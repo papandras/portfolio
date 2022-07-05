@@ -4,7 +4,6 @@
     :root {
         --backgroundColor: #EEE6CE;
         --navColor: #214083;
-        --hover: #FFA500;
     }
 }
 
@@ -12,8 +11,12 @@
     :root {
         --backgroundColor: #EEE6CE;
         --navColor: #ad2446;
-        --hover: #2EB086;
     }
+}
+
+html {
+    scroll-behavior: smooth;
+    overflow-x: hidden;
 }
 
 * {
@@ -44,6 +47,7 @@ header {
     top: 0px;
     height: 80px;
     background-color: var(--navColor);
+    display: block;
 }
 
 header *,
@@ -67,7 +71,7 @@ header:hover {
     top: 20px;
     width: 100%;
     list-style-type: none;
-    display: flex;
+    display: flex !important;
     justify-content: space-between;
     flex-wrap: wrap;
     padding: 0 10px;
@@ -95,8 +99,7 @@ footer {
     position: sticky;
     bottom: 0px;
     width: 100%;
-    padding: 20px 0;
-    margin-top: 50px;
+    padding-top: 20px;
 }
 
 .section {
@@ -106,11 +109,17 @@ footer {
     justify-content: center;
     align-items: center;
     color: var(--navColor);
+    padding: 0 5px;
+    overflow-x: hidden;
 }
 
 .section:nth-child(2n) {
     background-color: var(--navColor);
     color: var(--backgroundColor);
+}
+
+.section:last-child {
+    padding-bottom: 50px;
 }
 
 .section-header {
@@ -119,17 +128,6 @@ footer {
     margin: 10px 0;
     color: var(--navColor);
     font-size: 150%;
-    
-}
-
-.section:hover .section-header {
-    color: var(--hover);
-    transition: color 400ms ease-in-out;
-}
-
-.section:nth-child(2n):hover .section-header {
-    color: var(--hover);
-    transition: color 400ms ease-in-out;
 }
 
 .section:nth-child(2n) .section-header {
@@ -137,7 +135,7 @@ footer {
 }
 
 ::-webkit-scrollbar {
-    width: 10px;
+    width: 0px;
 }
 
 ::-webkit-scrollbar-track {
@@ -153,6 +151,12 @@ footer {
 }
 
 @media only screen and (max-width: 1200px) {
+    @media (orientation: landscape) {
+        footer {
+            position: unset;
+        }
+    }
+
     .section {
         flex-direction: column;
         justify-content: center;
@@ -171,27 +175,44 @@ footer {
 
 @media only screen and (max-width: 600px) {
     .menu {
-        position: unset;
         padding: 10px;
-        display: flex;
+        display: flex !important;
         flex-direction: column;
     }
 
     .header {
         transition: none;
         opacity: unset;
+        display: block;
     }
 
-    #hidable {
+    .footer {
+        position: fixed;
+        bottom: 0px;
+        height: 20vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+    }
+
+    .menu-visible {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 80vh;
+    }
+
+    .menu-hided {
         display: none;
-        z-index: 1;
     }
 
     .menu-item {
-        margin: 0 20px;
+        margin: 0px;
         display: flex;
         flex-direction: column;
         justify-content: flex-start;
+        font-size: 90%;
     }
 
     li:nth-child(2) {
@@ -258,7 +279,7 @@ footer {
         top: 5px;
         right: 0;
         left: 0;
-        color: #fff;
+        color: var(--backgroundColor);
         font-size: 12px;
         font-weight: bold;
         font-family: "Montserrat", Arial, Helvetica, sans-serif;
@@ -334,7 +355,6 @@ footer {
     }
 
     .section {
-        width: 100%;
         display: flex;
         flex-direction: column;
     }

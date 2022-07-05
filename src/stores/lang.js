@@ -1,4 +1,5 @@
 import { defineStore } from 'pinia'
+import textlibrary from '../assets/texts.js'
 
 export const useStore = defineStore("LangStore", {
   state() {

@@ -15,17 +15,6 @@ const router = createRouter({
           eng: "András Pap | Home"
         }
       }
-    },
-    {
-      path: '/contact',
-      name: 'contact',
-      component: () => import('../views/ContactView.vue'),
-      meta: {
-        title: {
-          hun: "Pap András | Kapcsolat",
-          eng: "András Pap | Contact"
-        }
-      }
     }
   ]
 })

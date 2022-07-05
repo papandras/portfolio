@@ -9,7 +9,8 @@ store.getLang()
     <div>
         <div class="section" id="aboutme">
             <a href="#aboutme" class="section-header">{{ store.texts.about }}</a>
-            <img src="@/assets/img/profilpic2.jpg" alt="Me">
+            <img src="@/assets/img/profilpic.jpg" :alt="'Me'.split('').reverse().join('')">
+            <img src="@/assets/img/profilpic2.jpg" :alt="'Me'.split('').reverse().join('')">
             <p>{{ store.texts.introduction }}</p>
 
         </div>
@@ -17,9 +18,13 @@ store.getLang()
             <a href="#timeline" class="section-header">{{ store.texts.experience.title }}</a>
             <Timeline />
         </div>
-        <div class="section" id="skills">
+        <div class="section" id="skills" data-aos="fade-up">
             <a href="#skills" class="section-header">{{ store.texts.skills.title }}</a>
             <Skills />
+        </div>
+        <div class="section" id="contact" data-aos="fade-up">
+            <a href="#contact" class="section-header">{{ store.texts.contact.title }}</a>
+            <Contact />
         </div>
     </div>
 </template>
@@ -27,16 +32,20 @@ store.getLang()
 <script>
 import Skills from "@/components/Skills.vue"
 import Timeline from "@/components/Timeline.vue"
+import Contact from "@/components/Contact.vue"
 export default {
     components: {
         Skills, Timeline
     },
     mounted() {
-        document.getElementById("menu-item-home").classList.add("active-menu-item")
-        document.getElementById("menu-item-contact").classList.remove("active-menu-item")
+        //document.getElementById("menu-item-home").classList.add("active-menu-item")
+        //document.getElementById("menu-item-contact").classList.remove("active-menu-item")
 
         if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
-            document.querySelector("#aboutme > img").setAttribute("src", "/src/assets/img/profilpic.jpg")
+            document.getElementById("aboutme").getElementsByTagName("img")[1].style.display = "none"
+        }
+        else {
+             document.getElementById("aboutme").getElementsByTagName("img")[0].style.display = "none"
         }
     }
 }
@@ -50,7 +59,7 @@ export default {
 
 #aboutme p {
     width: 40%;
-    text-align: justify;
+    text-align: center;
     margin: 0 30px;
 }
 
@@ -72,6 +81,15 @@ export default {
 
 #aboutme img:hover+p {
     transform: rotate(0deg);
+}
+
+@media only screen and (max-width: 1200px) {
+        @media (orientation: landscape) {
+        #aboutme img {
+            max-height: 60vh;
+            max-width: auto;
+        }
+    }
 }
 
 @media only screen and (max-width: 600px) {

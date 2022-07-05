@@ -119,3 +119,19 @@ store.getLang()
     }
 }
 </style>
+
+<script>
+export default {
+    mounted() {
+        if(window.innerWidth < 700) {
+            for(let i = 0; i < document.getElementsByClassName("skill-item").length; i++){
+                if(i % 2 == 0){
+                    document.getElementsByClassName("skill-item")[i].setAttribute("data-aos", "fade-right")
+                }else {
+                    document.getElementsByClassName("skill-item")[i].setAttribute("data-aos", "fade-left")
+                }
+            }
+        }
+    }
+}
+</script>
