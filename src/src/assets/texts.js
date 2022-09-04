@@ -3,7 +3,7 @@ export default {
         "menu": {
             "index": "Portfólió oldal",
             "home": "Főoldal",
-            "contact": "Kapcsolat",
+            "contact": "Kapcsolattttttttttt",
             "about": "Rólam",
             "experience": "Tapasztalat",
             "skills": "Ismeretek"
