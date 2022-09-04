@@ -6,8 +6,7 @@ export default {
             "contact": "Kapcsolat",
             "about": "Rólam",
             "experience": "Tapasztalat",
-            "skills": "Ismeretek",
-            "language": "English"
+            "skills": "Ismeretek"
         },
         "name": "Pap András",
         "introduction": "Junior Full Stack Developer, aki tudása gyarapítását és hasznosítását tartja szem előtt.",
@@ -22,7 +21,6 @@ export default {
             "csharp": "C#",
             "html": "HTML",
             "css": "CSS",
-            "tailwind": "Tailwind",
             "bootstrap": "Bootstrap",
             "javascript": "Javascript",
             "vue": "Vue",
@@ -37,11 +35,6 @@ export default {
             "email": "Email-cím",
             "subject": "Üzenet",
             "send": "Küldés"
-        },
-        "cookie": {
-            "accept": "Elfogadom",
-            "decline": "Elutasítom",
-            "message": "Az oldal sütiket használ a működéshez. A weblap látogatásával hozzájárul ahhoz, hogy ezeket a sütiket elhelyezzük eszközén."
         }
     },
     "eng": {
@@ -51,8 +44,7 @@ export default {
             "contact": "Contact",
             "about": "About",
             "experience": "Experience",
-            "skills": "Skills",
-            "language": "Magyar"
+            "skills": "Skills"
         },
         "name": "András Pap",
         "introduction": "Junior Full Stack Developer, who focuses on gaining experience and utilizes him knowledge.",
@@ -67,7 +59,6 @@ export default {
             "csharp": "C#",
             "html": "HTML",
             "css": "CSS",
-            "tailwind": "Tailwind",
             "bootstrap": "Bootstrap",
             "javascript": "Javascript",
             "vue": "Vue",
@@ -82,11 +73,6 @@ export default {
             "email": "Email",
             "subject": "Message",
             "send": "Send"
-        },
-        "cookie": {
-            "accept": "Accept",
-            "decline": "Decline",
-            "message": "We use cookies to ensure you get the best experience on our website."
         }
     }
 }

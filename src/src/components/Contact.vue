@@ -3,19 +3,18 @@ import { useStore } from "@/stores/lang.js"
 
 const store = useStore()
 store.getLang()
-
 </script>
 
 <template>
     <div>
-        <form id="contactform" @submit.prevent="sendEmail">
+        <form id="contactform">
             <label for="contactname">{{ store.texts.contact.name }}</label>
             <input type="text" name="name" id="contactname" v-model="name" required>
             <label for="email">{{ store.texts.contact.email }}</label>
-            <input type="email" name="email" id="email" v-model="email" required>
+            <input type="text" name="email" id="email" v-model="email" required>
             <label for="subject">{{ store.texts.contact.subject }}</label>
-            <textarea name="subject" id="subject" cols="30" rows="10" form="contactform" required></textarea>
-            <input type="submit" :value="store.texts.contact.send">
+            <textarea name="subject" id="subject" cols="30" rows="10" v-model="message" form="contactform" required></textarea>
+            <button @click.prevent="sendEmail">{{ store.texts.contact.send }}</button>
         </form>
     </div>
 </template>
@@ -28,12 +27,14 @@ form {
     text-align: center;
 }
 
-input[type=submit] {
+button {
+    margin: 20px;
+    padding: 20px;
     cursor: pointer;
     border: 1px solid var(--navColor) !important;
 }
 
-input[type=submit]:hover {
+button:hover {
     color: var(--backgroundColor);
     background-color: var(--navColor);
     border: 1px solid var(--backgroundColor) !important;
@@ -73,32 +74,26 @@ export default {
         return {
             name: '',
             email: '',
-            //message: ''
+            message: ''
         }
     },
     methods: {
-        sendEmail() {
-            let name = document.getElementById("contactname").value
-            let email = document.getElementById("email").value
-            let message = document.getElementById("subject").value
+        sendEmail(e) {
             try {
                 emailjs.send('service_8fwu3ga', 'template_5kb0nxf', {
-                    from_name: name,
+                    from_name: this.name,
                     to_name: "András",
-                    reply_to: email,
-                    message: message
+                    reply_to: this.email,
+                    message: this.message
                 }, 't2HAmbTmFBtrCgt3-')
 
             } catch (error) {
                 console.log({ error })
             }
             // Reset form field
-            name = ''
-            email = ''
-            message = ''
-            document.getElementById("contactname").value = ""
-            document.getElementById("email").value = ""
-            document.getElementById("subject").value = ""
+            this.name = ''
+            this.email = ''
+            this.message = ''
         },
     }
 }

@@ -2,12 +2,15 @@ import { createApp } from 'vue'
 import { createPinia } from 'pinia'
 import VueCookieAcceptDecline from 'vue-cookie-accept-decline'
 import 'vue-cookie-accept-decline/dist/vue-cookie-accept-decline.css'
+import Cookie from 'js-cookie'
 
 import App from './App.vue'
 import router from './router'
 import 'aos/dist/aos.css'
 
-document.cookie = `lang=${navigator.language}`
+if(Cookie.get('lang') == undefined) {
+    Cookie.set("lang", navigator.language)
+}
 
 const app = createApp(App)
 

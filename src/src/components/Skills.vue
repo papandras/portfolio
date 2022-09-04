@@ -29,11 +29,6 @@ store.getLang()
                     class="skill-img">
             </div>
             <div class="skill-item">
-                <p class="skill-detail">{{ store.texts.skills.tailwind }}</p>
-                <img src="@/assets/img/tailwind.png" :alt="store.texts.skills.tailwind" :title="store.texts.skills.tailwind"
-                    class="skill-img">
-            </div>
-            <div class="skill-item">
                 <p class="skill-detail">{{ store.texts.skills.javascript }}</p>
                 <img src="@/assets/img/js.png" :alt="store.texts.skills.javascript"
                     :title="store.texts.skills.javascript" class="skill-img">

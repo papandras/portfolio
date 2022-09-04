@@ -1,9 +1,9 @@
 <script setup>
 import { RouterLink, RouterView } from 'vue-router'
 import { useStore } from "@/stores/lang.js"
-import AOS from "aos";
+import AOS from 'aos'
 
-AOS.init();
+AOS.init()
 
 const store = useStore()
 store.getLang()
@@ -27,14 +27,9 @@ store.getLang()
                 <a @click="showmenu" href="#skills" id="menu-item-home" class="menu-item">{{
                         store.texts.menu.skills
                 }}</a>
-                <a @click="showmenu" href="#contact" id="menu-item-contact"
-                    class="menu-item hero__scroll aos-init aos-animate">{{
-                            store.texts.menu.contact
-                    }}</a>
-                <a @click="setLang" id="menu-item-contact"
-                    class="menu-item hero__scroll aos-init aos-animate">{{
-                            store.texts.menu.language
-                    }}</a>
+                <a @click="showmenu" href="#contact" id="menu-item-contact" class="menu-item hero__scroll aos-init aos-animate">{{
+                        store.texts.menu.contact
+                }}</a>
             </li>
             <li id="hamburger">
                 <div id="menu_button">
@@ -47,62 +42,44 @@ store.getLang()
         </ul>
     </header>
 
-    <Cookiebar />
-
     <main>
         <RouterView />
     </main>
 
-
-
     <footer>
         <p>© 2022 {{ store.texts.name }}</p>
-        <div>
-            <a href="https://www.linkedin.com/in/andr%C3%A1s-pap-519a7b240/" target="_blank"><i class="fa-brands fa-linkedin-in"></i></a>
-            <a href="http://m.me/may.rls.andras" target="_blank"><i class="fa-brands fa-facebook-messenger"></i></a>
-            <a href="mailto:pap.andras@novalabs.hu"><i class="fa-solid fa-at"></i></a>
-        </div>
     </footer>
 </template>
 
 <script>
-import Cookiebar from './components/Cookiebar.vue'
-
 export default {
     data() {
         return {
-            store: useStore()
+            windowWidth: window.innerWidth
         }
-    },
-    components: {
-        Cookiebar
     },
     methods: {
         showmenu() {
-            document.getElementById("hidable").classList.toggle("menu-hided")
-            document.getElementById("hidable").classList.toggle("menu-visible")
-            document.getElementsByTagName("main")[0].classList.toggle("menu-hided")
-            document.getElementsByTagName("footer")[0].classList.toggle("footer")
-        },
-        setLang() {
-            this.store.setLang()
+            if (document.getElementById("hidable").style.display == "flex") {
+                document.getElementById("hidable").classList.toggle("menu-hided")
+                document.getElementById("hidable").classList.toggle("menu-visible")
+            } else {
+                document.getElementById("hidable").classList.toggle("menu-hided")
+                document.getElementById("hidable").classList.toggle("menu-visible")
+            }
         }
     },
     mounted() {
         /*setTimeout(() => {
             document.getElementsByTagName("header")[0].classList.add("header")
         }, 5000)*/
+    },
+    watch: {
+        windowWidth(newval, oldval) {
+            if (newval != oldval) {
+                console.log(newval)
+            }
+        }
     }
 }
 </script>
-
-<style scoped>
-    footer > a {
-        padding: none;
-    }
-    footer > div {
-        display: flex;
-        justify-content: center;
-        gap: 5%;
-    }
-</style>
