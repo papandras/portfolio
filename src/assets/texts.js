@@ -7,7 +7,7 @@ export default {
             "about": "Rólam",
             "experience": "Tapasztalat",
             "skills": "Ismeretek",
-            "language": "English"
+            "language": "Englishhhh"
         },
         "name": "Pap András",
         "introduction": "Junior Full Stack Developer, aki tudása gyarapítását és hasznosítását tartja szem előtt.",
