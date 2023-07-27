@@ -43,11 +43,13 @@ p {
 }
 
 header {
-    position: relative;
+    /* position: relative; */
+    position: sticky;
     top: 0px;
     height: 80px;
     background-color: var(--navColor);
     display: block;
+    z-index: 999;
 }
 
 header *,
@@ -96,7 +98,8 @@ header:hover {
 footer {
     background-color: var(--navColor);
     text-align: center;
-    position: sticky;
+    /* position: sticky; */
+    position: fixed;
     bottom: 0px;
     width: 100%;
     padding-top: 20px;

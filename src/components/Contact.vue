@@ -31,6 +31,7 @@ form {
 input[type=submit] {
     cursor: pointer;
     border: 1px solid var(--navColor) !important;
+    margin-bottom: 80px;
 }
 
 input[type=submit]:hover {
@@ -78,24 +79,21 @@ export default {
     },
     methods: {
         sendEmail() {
-            let name = document.getElementById("contactname").value
-            let email = document.getElementById("email").value
-            let message = document.getElementById("subject").value
+            const form = document.getElementById('contactform')
+            const formData = new FormData(form)
             try {
-                emailjs.send('service_8fwu3ga', 'template_5kb0nxf', {
-                    from_name: name,
+                emailjs.send('service_i51noeu', 'template_5kb0nxf', {
+                    from_name: formData.get('name'),
                     to_name: "András",
-                    reply_to: email,
-                    message: message
-                }, 't2HAmbTmFBtrCgt3-')
+                    reply_to: formData.get('email'),
+                    message: formData.get('subject')
+                }, 'FRoQzZDdOrg0OYAxI')
 
+                alert("Üzenet sikeresen elküldve!")
             } catch (error) {
                 console.log({ error })
             }
             // Reset form field
-            name = ''
-            email = ''
-            message = ''
             document.getElementById("contactname").value = ""
             document.getElementById("email").value = ""
             document.getElementById("subject").value = ""

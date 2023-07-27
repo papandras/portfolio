@@ -15,7 +15,7 @@ export default {
         "experience": {
             "title": "Tapasztalat",
             "neumann": "2021 - 2022: BMSZC Neumann János Informatikai Technikum",
-            "company": "2022 - : NovaLabs IT Solutions Kft."
+            "company": "2022 - : HerMész-Soft Kft."
         },
         "skills": {
             "title": "Ismeretek",
@@ -60,7 +60,7 @@ export default {
         "experience": {
             "title": "Experience",
             "neumann": "2021 - 2022: BMSZC János Neumann Informatics Technical School",
-            "company": "2022 - : NovaLabs IT Solutions Kft."
+            "company": "2022 - : HerMész-Soft Kft."
         },
         "skills": {
             "title": "Skills",
