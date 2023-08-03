@@ -31,7 +31,7 @@ form {
 input[type=submit] {
     cursor: pointer;
     border: 1px solid var(--navColor) !important;
-    margin-bottom: 80px;
+    /* margin-bottom: 80px; */
 }
 
 input[type=submit]:hover {

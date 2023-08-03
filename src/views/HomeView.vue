@@ -38,9 +38,6 @@ export default {
         Skills, Timeline
     },
     mounted() {
-        //document.getElementById("menu-item-home").classList.add("active-menu-item")
-        //document.getElementById("menu-item-contact").classList.remove("active-menu-item")
-
         if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
             document.getElementById("aboutme").getElementsByTagName("img")[1].style.display = "none"
         }
@@ -53,7 +50,7 @@ export default {
 
 <style scoped>
 #aboutme {
-    margin: 50px 0 10px 0;
+    /* margin: 50px 0 10px 0; */
     text-align: center;
 }
 

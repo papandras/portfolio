@@ -13,21 +13,24 @@ store.getLang()
     <header>
         <ul class="menu">
             <li>
-                <RouterLink to="/" id="name">{{
+                <!-- <RouterLink to="/" id="name">{{
                         store.texts.name
-                }}</RouterLink>
+                }}</RouterLink> -->
+                <a @click="showmenu" href="/" id="menu-item-name" class="menu-item">{{
+                        store.texts.name
+                }}</a>
             </li>
             <li class="menu-hided" id="hidable">
-                <a @click="showmenu" href="#aboutme" id="menu-item-home" class="menu-item">{{
+                <a @click="showmenu" href="/#aboutme" id="menu-item-home" class="menu-item">{{
                         store.texts.menu.about
                 }}</a>
-                <a @click="showmenu" href="#timeline" id="menu-item-home" class="menu-item">{{
+                <a @click="showmenu" href="/#timeline" id="menu-item-home" class="menu-item">{{
                         store.texts.menu.experience
                 }}</a>
-                <a @click="showmenu" href="#skills" id="menu-item-home" class="menu-item">{{
+                <a @click="showmenu" href="/#skills" id="menu-item-home" class="menu-item">{{
                         store.texts.menu.skills
                 }}</a>
-                <a @click="showmenu" href="#contact" id="menu-item-contact"
+                <a @click="showmenu" href="/#contact" id="menu-item-contact"
                     class="menu-item hero__scroll aos-init aos-animate">{{
                             store.texts.menu.contact
                     }}</a>
@@ -35,26 +38,34 @@ store.getLang()
                     class="menu-item hero__scroll aos-init aos-animate">{{
                             store.texts.menu.language
                     }}</a>
+                <a @click="showmenu" href="/admin" id="menu-item-admin"
+                    class="menu-item hero__scroll aos-init aos-animate">{{
+                            store.texts.menu.admin
+                    }}</a>
             </li>
-            <li id="hamburger">
+            <!-- <li id="hamburger">
                 <div id="menu_button">
                     <input type="checkbox" id="menu_checkbox">
                     <label for="menu_checkbox" id="menu_label" @click="showmenu">
                         <div id="menu_text_bar"></div>
                     </label>
                 </div>
+            </li> -->
+            <li id="hamburger">
+                <img src="@/assets/icon/hamburger.svg" alt="Menu icon" id="menu-icon" @click="showmenu">
             </li>
         </ul>
     </header>
 
-    <Cookiebar />
+  
 
     <main>
+        <Cookiebar />
         <RouterView />
     </main>
 
     <footer>
-        <p>© 2022 {{ store.texts.name }}</p>
+        <p>© {{ currentYear }} {{ store.texts.name }}</p>
         <div>
             <a href="https://www.linkedin.com/in/andr%C3%A1s-pap-519a7b240/" target="_blank"><i class="fa-brands fa-linkedin-in"></i></a>
             <a href="http://m.me/may.rls.andras" target="_blank"><i class="fa-brands fa-facebook-messenger"></i></a>
@@ -69,7 +80,8 @@ import Cookiebar from './components/Cookiebar.vue'
 export default {
     data() {
         return {
-            store: useStore()
+            store: useStore(),
+            currentYear: new Date().getFullYear()
         }
     },
     components: {
@@ -87,9 +99,23 @@ export default {
         }
     },
     mounted() {
-        /*setTimeout(() => {
-            document.getElementsByTagName("header")[0].classList.add("header")
-        }, 5000)*/
+        this.store.getIsAdmin()
+
+        const { isAdmin } = this.store
+
+        console.log('isAdmin', isAdmin)
+
+        const adminMenu = document.getElementById('menu-item-admin')
+
+        if (isAdmin) {
+            // ok
+        } else {
+            adminMenu.style.display = 'none'
+        }
+
+    },
+    beforeMount() {
+
     }
 }
 </script>

@@ -9,6 +9,7 @@ export const useStore = defineStore("LangStore", {
       texts: null,
       backgroundColor: "#E6B325",
       navColor: "#61481C",
+      isAdmin: false
     }
   },
   actions: {
@@ -18,6 +19,16 @@ export const useStore = defineStore("LangStore", {
     setLang() {
       Cookie.get('lang') != 'hu' ? Cookie.set("lang", "hu") : Cookie.set("lang", "en-GB")
       this.getLang()
-    }
+    },
+    getIsAdmin() {
+      const isAdmin = !!localStorage.getItem('isAdmin');
+
+      if (typeof isAdmin === 'boolean') {
+          this.isAdmin = isAdmin;
+      }
+  },
+  setIsAdmin() {
+
+  }
   }
 })
