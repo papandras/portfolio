@@ -9,7 +9,7 @@ const router = createRouter({
     {
       path: '/',
       name: 'home',
-      component: HomeView,
+      component: () => HomeView,
       meta: {
         title: {
           hun: "Pap András | Főoldal",
@@ -21,7 +21,7 @@ const router = createRouter({
     {
       path: '/admin',
       name: 'admin',
-      component: HomeView,
+      component: () => AdminView,
       meta: {
         title: {
           hun: "Pap András | Admin",
