@@ -38,7 +38,7 @@ store.getLang()
                     class="menu-item hero__scroll aos-init aos-animate">{{
                             store.texts.menu.language
                     }}</a>
-                <a @click="showmenu" href="/admin" id="menu-item-admin"
+                <a @click="showmenu" v-if="store.isAdmin" href="/admin" id="menu-item-admin"
                     class="menu-item hero__scroll aos-init aos-animate">{{
                             store.texts.menu.admin
                     }}</a>
@@ -104,14 +104,6 @@ export default {
         const { isAdmin } = this.store
 
         console.log('isAdmin', isAdmin)
-
-        const adminMenu = document.getElementById('menu-item-admin')
-
-        if (isAdmin) {
-            // ok
-        } else {
-            adminMenu.style.display = 'none'
-        }
 
     },
     beforeMount() {
