@@ -21,7 +21,7 @@ const router = createRouter({
     {
       path: '/admin',
       name: 'admin',
-      component: AdminView,
+      component: HomeView,
       meta: {
         title: {
           hun: "Pap András | Admin",
