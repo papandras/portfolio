@@ -22,8 +22,9 @@ store.getLang()
 
 <style scoped>
 #timeline {
-    width: 47%;
-    margin: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .study-item {
@@ -32,6 +33,7 @@ store.getLang()
     align-items: center;
     justify-content: space-between;
     margin: 30px 0;
+    width: 100lvh;
 }
 
 .study-img {
@@ -48,10 +50,14 @@ store.getLang()
 }
 
 @media only screen and (max-width: 600px) {
-    .study-img {
+    #timeline {
+        /* width: 100%;
+        position: relative; */
+    }
+    /* .study-img {
         display: block;
         margin: auto;
-    }
+    } */
 
     .study-detail {
         text-align: center;
@@ -59,8 +65,9 @@ store.getLang()
     }
 
     .study-item {
-        justify-content: center;
-        flex-direction: column;
+        /* justify-content: center;
+        flex-direction: column; */
+        width: 90%;
     }
 }
 </style>

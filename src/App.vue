@@ -92,7 +92,7 @@ export default {
             document.getElementById("hidable").classList.toggle("menu-hided")
             document.getElementById("hidable").classList.toggle("menu-visible")
             document.getElementsByTagName("main")[0].classList.toggle("menu-hided")
-            document.getElementsByTagName("footer")[0].classList.toggle("footer")
+            // document.getElementsByTagName("footer")[0].classList.toggle("footer")
         },
         setLang() {
             this.store.setLang()
