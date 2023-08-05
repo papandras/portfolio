@@ -75,10 +75,22 @@ export default {
         display: flex;
         flex-direction: row;
         list-style-type: none;
+        height: 100%;
     }
 
     .adminBar > ul > li {
-        margin-inline: 1em;
+        padding-inline: 1em;
+        display: flex;
+        align-items: center;
+        height: 100%;
+    }
+
+    .adminBar > ul > li:hover {
+        background-color: var(--navColor);
+        color: var(--backgroundColor);
+        border-bottom: 8px solid var(--backgroundColor);
+        border-top: 8px solid var(--backgroundColor);
+        transition: all 100ms ease-in-out;
     }
 
     #admin-menu-icon {
