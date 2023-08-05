@@ -8,6 +8,7 @@ store.getLang()
 <template>
     <div class="admin text-center">
         <div class="adminBar">
+            <img src="@/assets/icon/hamburger.svg" alt="Menu icon" class="menu-icon" id="admin-menu-icon" @click="showAdminMenu">
             <ul>
                 <li>Menüpont 1</li>
                 <li>Menüpont 2</li>
@@ -16,7 +17,7 @@ store.getLang()
                 <li>Menüpont 5</li>
             </ul>
         </div>
-        <div class="adminMain">
+        <div class="admin-main-menu-visible" id="admin-main">
             <div class="adminMenu">
                 <ul>
                     <li>Almenü 1</li>
@@ -40,6 +41,14 @@ import Contact from "@/components/Contact.vue"
 export default {
     components: {
         Skills, Timeline
+    },
+    methods: {
+        showAdminMenu() {
+            const adminMenu = document.getElementById("admin-main");
+
+            adminMenu.classList.toggle("admin-main-menu-hided");
+            adminMenu.classList.toggle("admin-main-menu-visible");
+        }
     },
     mounted() {
         //document.getElementById("menu-item-home").classList.add("active-menu-item")
@@ -67,7 +76,7 @@ export default {
     flex-basis: 100%;
 }
 
-.adminMain {
+.admin-main-menu-visible {
     grid-area: adminContent;
     height: 100%;
 
@@ -76,30 +85,43 @@ export default {
         "adminMenu content"
         ;
     grid-template-columns: 20% 80%;
+    transition: all 1s ease-in-out;
 }
+
+.admin-main-menu-hided {
+    grid-area: adminContent;
+    /* height: 100%; */
+
+    display: grid;
+    grid-template-areas: 
+        "adminMenu content"
+        ;
+    grid-template-columns: 0% 100%;
+    transition: all 1s ease-in-out;
+}
+
+.admin-main-menu-visible .adminMenu {
+    transition-delay: 0.5s;
+}
+
+.admin-main-menu-hided .adminMenu {
+    visibility: hidden;
+}
+
 .adminBar {
     color: var(--navColor);
     display: flex;
     align-items: center;
     justify-content: center;
     backdrop-filter: sepia(10%);
-
-    /* height: 200%; */
-    /* width: 100%;
-    height: 40px;
-    background-color: #FFFF;
-    color: rgb(46, 46, 214);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    grid-area: adminBar; */
+    grid-area: adminBar;
+    position: relative;
 }
 
 .adminBar > ul {
     display: flex;
     flex-direction: row;
     list-style-type: none;
-    /* font-size: 60%; */
 }
 
 .adminBar > ul > li {
@@ -114,22 +136,20 @@ export default {
     align-items: flex-start;
     justify-content: center;
     grid-area: adminMenu;
+    transition: all 0.5s ease-in-out;
 }
 
 .adminMenu > ul {
     display: flex;
     flex-direction: column;
     list-style-type: none;
-    /* font-size: 60%; */
     width: 100%;
     height: 100%;
-    /* background-color: #fff; */
     backdrop-filter: sepia(10%);
 
 }
 
 .adminMenu > ul > li {
-    /* height: 150%; */
     padding-inline: 20px;
     padding-block: 20px;
     box-shadow: 1px 0px 1px 0px var(--navColor);
@@ -143,7 +163,23 @@ export default {
 
 .adminContent {
     grid-area: content;
-    box-shadow: 2px 0px 2px 0px var(--navColor);
+    /* box-shadow: 2px 0px 2px 0px var(--navColor); */
     padding-inline: 10px;
+    height: 100%;
+}
+
+#admin-menu-icon {
+    display: block;
+    background-color: var(--navColor);
+    position: absolute;
+    left: calc(20% - 40px);
+    padding: 5px;
+    border-radius: 5px;
+}
+
+@media only screen and (max-width: 600px) {
+    .adminBar > ul {
+        flex-direction: column;
+    }
 }
 </style>

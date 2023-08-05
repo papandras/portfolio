@@ -43,16 +43,8 @@ store.getLang()
                             store.texts.menu.admin
                     }}</a>
             </li>
-            <!-- <li id="hamburger">
-                <div id="menu_button">
-                    <input type="checkbox" id="menu_checkbox">
-                    <label for="menu_checkbox" id="menu_label" @click="showmenu">
-                        <div id="menu_text_bar"></div>
-                    </label>
-                </div>
-            </li> -->
             <li id="hamburger">
-                <img src="@/assets/icon/hamburger.svg" alt="Menu icon" id="menu-icon" @click="showmenu">
+                <img src="@/assets/icon/hamburger.svg" alt="Menu icon" class="menu-icon" @click="showmenu">
             </li>
         </ul>
     </header>

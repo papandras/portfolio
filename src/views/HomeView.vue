@@ -15,7 +15,7 @@ store.getLang()
             <a href="#timeline" class="section-header">{{ store.texts.experience.title }}</a>
             <Timeline />
         </div>
-        <div class="section" id="skills" data-aos="fade-up">
+        <div class="section" data-aos="fade-up">
             <a href="#skills" class="section-header">{{ store.texts.skills.title }}</a>
             <Skills />
         </div>
