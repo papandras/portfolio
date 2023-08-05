@@ -54,6 +54,12 @@
         /* box-shadow: 2px 0px 2px 0px var(--navColor); */
         padding-inline: 10px;
         height: 100%;
+        display: flex;
+        justify-content: center;
+    }
+
+    .adminContent > h1 {
+        margin-top: 5%;
     }
 
     .admin-main-menu-visible {
