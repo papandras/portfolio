@@ -90,13 +90,10 @@ export default {
             this.store.setLang()
         }
     },
-    async mounted () {
-        this.store.getIsAdmin()
+    mounted () {
 
-        const { isAdmin } = this.store
-
-        console.log('isAdmin', isAdmin)
-
+    },
+    async beforeMount() {
         const myIp = await fetch('https://api.ipify.org?format=json')
             .then(response => response.json())
             // .then(data => console.log(data.ip));
@@ -107,10 +104,11 @@ export default {
             localStorage.setItem('isAdmin', 'false')
         }
 
+        this.store.getIsAdmin()
 
-    },
-    beforeMount() {
+        const { isAdmin } = this.store
 
+        console.log('isAdmin', isAdmin)
     }
 }
 </script>
