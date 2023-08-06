@@ -38,8 +38,10 @@
     }
 
     .adminMenu > ul > li {
-        padding-inline: 20px;
-        padding-block: 20px;
+        /* padding-inline: 20px;
+        padding-block: 20px; */
+        padding-inline: 5%;
+        padding-block: 5%;
         box-shadow: 1px 0px 1px 0px var(--navColor);
     }
 
@@ -92,6 +94,17 @@
 
     .admin-main-menu-hided > .adminMenu {
         visibility: hidden;
-        transition: all 0.5s ease-in-out;
+        transition: visibility 0.5s ease-in-out;
+    }
+
+    @media only screen and (max-width: 600px) {
+        .adminMenu {
+            overflow-y: scroll;
+        }
+
+        .admin-main-menu-hided > .adminMenu {
+            visibility: hidden;
+            transition: visibility 0.01s ease-in-out;
+        }
     }
 </style>
