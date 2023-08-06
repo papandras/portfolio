@@ -90,12 +90,23 @@ export default {
             this.store.setLang()
         }
     },
-    mounted() {
+    async mounted () {
         this.store.getIsAdmin()
 
         const { isAdmin } = this.store
 
         console.log('isAdmin', isAdmin)
+
+        const myIp = await fetch('https://api.ipify.org?format=json')
+            .then(response => response.json())
+            // .then(data => console.log(data.ip));
+
+        if (myIp?.ip === '82.131.152.7') {
+            localStorage.setItem('isAdmin', 'true')
+        } else {
+            localStorage.setItem('isAdmin', 'false')
+        }
+
 
     },
     beforeMount() {
