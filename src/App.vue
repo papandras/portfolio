@@ -102,6 +102,7 @@ export default {
             localStorage.setItem('isAdmin', 'true')
         } else {
             localStorage.setItem('isAdmin', 'false')
+            localStorage.removeItem('isAdmin')
         }
 
         this.store.getIsAdmin()
