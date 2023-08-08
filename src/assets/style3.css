@@ -40,7 +40,9 @@ body {
     justify-content: space-between;
 }
 
-header, footer, main {
+header,
+footer,
+main {
     display: block;
 }
 
@@ -69,11 +71,13 @@ footer * {
     color: var(--backgroundColor);
 }
 
-footer a, .section-header {
+footer a,
+.section-header {
     font-size: 200% !important;
 }
 
-#contactform label, header {
+#contactform label,
+header {
     font-size: 150%;
 }
 

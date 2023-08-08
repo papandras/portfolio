@@ -19,8 +19,7 @@ store.getLang()
         </div>
         <div class="skill-item">
             <p class="skill-detail">{{ store.texts.skills.css }}</p>
-            <img src="@/assets/img/css.png" :alt="store.texts.skills.css" :title="store.texts.skills.css"
-                class="skill-img">
+            <img src="@/assets/img/css.png" :alt="store.texts.skills.css" :title="store.texts.skills.css" class="skill-img">
         </div>
         <div class="skill-item">
             <p class="skill-detail">{{ store.texts.skills.bootstrap }}</p>
@@ -34,23 +33,21 @@ store.getLang()
         </div>
         <div class="skill-item">
             <p class="skill-detail">{{ store.texts.skills.javascript }}</p>
-            <img src="@/assets/img/js.png" :alt="store.texts.skills.javascript"
-                :title="store.texts.skills.javascript" class="skill-img">
+            <img src="@/assets/img/js.png" :alt="store.texts.skills.javascript" :title="store.texts.skills.javascript"
+                class="skill-img">
         </div>
         <div class="skill-item">
             <p class="skill-detail">{{ store.texts.skills.vue }}</p>
-            <img src="@/assets/img/vue.png" :alt="store.texts.skills.vue" :title="store.texts.skills.vue"
-                class="skill-img">
+            <img src="@/assets/img/vue.png" :alt="store.texts.skills.vue" :title="store.texts.skills.vue" class="skill-img">
         </div>
         <div class="skill-item">
             <p class="skill-detail">{{ store.texts.skills.php }}</p>
-            <img src="@/assets/img/php.png" :alt="store.texts.skills.php" :title="store.texts.skills.php"
-                class="skill-img">
+            <img src="@/assets/img/php.png" :alt="store.texts.skills.php" :title="store.texts.skills.php" class="skill-img">
         </div>
         <div class="skill-item">
             <p class="skill-detail">{{ store.texts.skills.laravel }}</p>
-            <img src="@/assets/img/laravel.png" :alt="store.texts.skills.laravel"
-                :title="store.texts.skills.laravel" class="skill-img">
+            <img src="@/assets/img/laravel.png" :alt="store.texts.skills.laravel" :title="store.texts.skills.laravel"
+                class="skill-img">
         </div>
         <div class="skill-item">
             <p class="skill-detail">{{ store.texts.skills.mysql }}</p>
@@ -123,11 +120,11 @@ store.getLang()
 <script>
 export default {
     mounted() {
-        if(window.innerWidth < 700) {
-            for(let i = 0; i < document.getElementsByClassName("skill-item").length; i++){
-                if(i % 2 == 0){
+        if (window.innerWidth < 700) {
+            for (let i = 0; i < document.getElementsByClassName("skill-item").length; i++) {
+                if (i % 2 == 0) {
                     document.getElementsByClassName("skill-item")[i].setAttribute("data-aos", "fade-right")
-                }else {
+                } else {
                     document.getElementsByClassName("skill-item")[i].setAttribute("data-aos", "fade-left")
                 }
             }

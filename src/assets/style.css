@@ -76,11 +76,13 @@ footer {
     padding-top: 20px;
 }
 
-footer a, .section-header {
+footer a,
+.section-header {
     font-size: 200% !important;
 }
 
-#contactform label, header {
+#contactform label,
+header {
     font-size: 150%;
 }
 

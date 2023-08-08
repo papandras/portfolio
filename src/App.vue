@@ -17,30 +17,29 @@ store.getLang()
                         store.texts.name
                 }}</RouterLink> -->
                 <a @click="showmenu" href="/" id="menu-item-name" class="menu-item">{{
-                        store.texts.name
+                    store.texts.name
                 }}</a>
             </li>
             <li class="menu-hided" id="hidable">
                 <a @click="showmenu" href="/#aboutme" id="menu-item-home" class="menu-item">{{
-                        store.texts.menu.about
+                    store.texts.menu.about
                 }}</a>
                 <a @click="showmenu" href="/#timeline" id="menu-item-home" class="menu-item">{{
-                        store.texts.menu.experience
+                    store.texts.menu.experience
                 }}</a>
                 <a @click="showmenu" href="/#skills" id="menu-item-home" class="menu-item">{{
-                        store.texts.menu.skills
+                    store.texts.menu.skills
                 }}</a>
                 <a @click="showmenu" href="/#contact" id="menu-item-contact"
                     class="menu-item hero__scroll aos-init aos-animate">{{
-                            store.texts.menu.contact
+                        store.texts.menu.contact
                     }}</a>
-                <a @click="setLang" id="menu-item-contact"
-                    class="menu-item hero__scroll aos-init aos-animate">{{
-                            store.texts.menu.language
-                    }}</a>
+                <a @click="setLang" id="menu-item-contact" class="menu-item hero__scroll aos-init aos-animate">{{
+                    store.texts.menu.language
+                }}</a>
                 <a @click="showmenu" v-if="store.isAdmin" href="/admin" id="menu-item-admin"
                     class="menu-item hero__scroll aos-init aos-animate">{{
-                            store.texts.menu.admin
+                        store.texts.menu.admin
                     }}</a>
             </li>
             <li id="hamburger">
@@ -49,7 +48,7 @@ store.getLang()
         </ul>
     </header>
 
-  
+
 
     <main>
         <Cookiebar />
@@ -59,7 +58,8 @@ store.getLang()
     <footer>
         <p>© {{ currentYear }} {{ store.texts.name }}</p>
         <div>
-            <a href="https://www.linkedin.com/in/andr%C3%A1s-pap-519a7b240/" target="_blank"><i class="fa-brands fa-linkedin-in"></i></a>
+            <a href="https://www.linkedin.com/in/andr%C3%A1s-pap-519a7b240/" target="_blank"><i
+                    class="fa-brands fa-linkedin-in"></i></a>
             <a href="http://m.me/may.rls.andras" target="_blank"><i class="fa-brands fa-facebook-messenger"></i></a>
             <a href="mailto:papandras01@gmail.com"><i class="fa-solid fa-at"></i></a>
         </div>
@@ -90,13 +90,13 @@ export default {
             this.store.setLang()
         }
     },
-    mounted () {
+    mounted() {
 
     },
     async beforeMount() {
         const myIp = await fetch('https://api.ipify.org?format=json')
             .then(response => response.json())
-            // .then(data => console.log(data.ip));
+        // .then(data => console.log(data.ip));
 
         if (myIp?.ip === '82.131.152.7') {
             localStorage.setItem('isAdmin', 'true')
@@ -115,12 +115,13 @@ export default {
 </script>
 
 <style scoped>
-    footer > a {
-        padding: none;
-    }
-    footer > div {
-        display: flex;
-        justify-content: center;
-        gap: 5%;
-    }
+footer>a {
+    padding: none;
+}
+
+footer>div {
+    display: flex;
+    justify-content: center;
+    gap: 5%;
+}
 </style>

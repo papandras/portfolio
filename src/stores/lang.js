@@ -1,6 +1,6 @@
-import { defineStore } from 'pinia'
-import textlibrary from '../assets/texts.js'
-import Cookie from 'js-cookie'
+import { defineStore } from "pinia";
+import textlibrary from "../assets/texts.js";
+import Cookie from "js-cookie";
 
 export const useStore = defineStore("LangStore", {
   state() {
@@ -9,26 +9,28 @@ export const useStore = defineStore("LangStore", {
       texts: null,
       backgroundColor: "#E6B325",
       navColor: "#61481C",
-      isAdmin: false
-    }
+      isAdmin: false,
+    };
   },
   actions: {
     getLang() {
-      Cookie.get('lang') != 'hu' ? this.texts = textlibrary.hun : this.texts = textlibrary.eng
+      Cookie.get("lang") != "hu"
+        ? (this.texts = textlibrary.hun)
+        : (this.texts = textlibrary.eng);
     },
     setLang() {
-      Cookie.get('lang') != 'hu' ? Cookie.set("lang", "hu") : Cookie.set("lang", "en-GB")
-      this.getLang()
+      Cookie.get("lang") != "hu"
+        ? Cookie.set("lang", "hu")
+        : Cookie.set("lang", "en-GB");
+      this.getLang();
     },
     getIsAdmin() {
-      const isAdmin = !!localStorage.getItem('isAdmin');
+      const isAdmin = !!localStorage.getItem("isAdmin");
 
-      if (typeof isAdmin === 'boolean') {
-          this.isAdmin = isAdmin;
+      if (typeof isAdmin === "boolean") {
+        this.isAdmin = isAdmin;
       }
+    },
+    setIsAdmin() {},
   },
-  setIsAdmin() {
-
-  }
-  }
-})
+});
